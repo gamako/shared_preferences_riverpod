@@ -35,7 +35,7 @@ class PrefNotifier<T> extends StateNotifier<T> {
   }
 }
 
-StateNotifierProvider<PrefNotifier<T>, T> createPrefNotifierProvider<T>({
+StateNotifierProvider<PrefNotifier<T>, T> createPrefProvider<T>({
   required SharedPreferences Function(ProviderReference) prefs,
   required String prefKey,
   required T defaultValue,
@@ -44,8 +44,8 @@ StateNotifierProvider<PrefNotifier<T>, T> createPrefNotifierProvider<T>({
       (ref) => PrefNotifier<T>(prefs(ref), prefKey, defaultValue));
 }
 
-class EnumPrefNotifier<T> extends StateNotifier<T> {
-  EnumPrefNotifier(this.prefs, this.prefKey, this.mapFrom, this.mapTo)
+class MapPrefNotifier<T> extends StateNotifier<T> {
+  MapPrefNotifier(this.prefs, this.prefKey, this.mapFrom, this.mapTo)
       : super(mapFrom(prefs.getString(prefKey)));
 
   SharedPreferences prefs;
@@ -67,13 +67,13 @@ class EnumPrefNotifier<T> extends StateNotifier<T> {
   }
 }
 
-StateNotifierProvider<EnumPrefNotifier<T>, T>
-    createEnumPrefNotifierProvider<T>({
+StateNotifierProvider<MapPrefNotifier<T>, T>
+    createMapPrefProvider<T>({
   required SharedPreferences Function(ProviderReference) prefs,
   required String prefKey,
   required T Function(String?) mapFrom,
   required String Function(T) mapTo,
 }) {
-  return StateNotifierProvider<EnumPrefNotifier<T>, T>(
-      (ref) => EnumPrefNotifier<T>(prefs(ref), prefKey, mapFrom, mapTo));
+  return StateNotifierProvider<MapPrefNotifier<T>, T>(
+      (ref) => MapPrefNotifier<T>(prefs(ref), prefKey, mapFrom, mapTo));
 }

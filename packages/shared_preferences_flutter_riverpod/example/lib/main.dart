@@ -5,7 +5,7 @@ import 'package:shared_preferences_flutter_riverpod/shared_preferences_riverpod.
 
 late SharedPreferences prefs;
 
-final booPrefProvider = createPrefNotifierProvider<bool>(
+final booPrefProvider = createPrefProvider<bool>(
   prefs: (_) => prefs,
   prefKey: "boolValue",
   defaultValue: false,
@@ -16,7 +16,7 @@ enum EnumValues {
   bar,
 }
 
-final enumPrefProvider = createEnumPrefNotifierProvider<EnumValues>(
+final enumPrefProvider = createMapPrefProvider<EnumValues>(
   prefs: (_) => prefs,
   prefKey: "enumValue",
   mapFrom: (v) => EnumValues.values
