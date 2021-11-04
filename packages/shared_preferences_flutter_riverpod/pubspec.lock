@@ -76,13 +76,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  flutter_riverpod:
-    dependency: "direct main"
-    description:
-      name: flutter_riverpod
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.14.0+3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -185,7 +178,7 @@ packages:
     source: hosted
     version: "4.2.4"
   riverpod:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: riverpod
       url: "https://pub.dartlang.org"

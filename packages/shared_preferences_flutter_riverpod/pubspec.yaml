@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   shared_preferences: ^2.0.8
-  flutter_riverpod: ^0.14.0+3
+  riverpod: ^0.14.0+3
 
 
 dev_dependencies:

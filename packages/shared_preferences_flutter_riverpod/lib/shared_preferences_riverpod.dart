@@ -1,6 +1,6 @@
 library shared_preferences_flutter_riverpod;
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// The type parameter `T` is the type of value that will
