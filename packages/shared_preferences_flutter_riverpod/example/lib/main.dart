@@ -44,24 +44,24 @@ class MyApp extends StatelessWidget {
             CheckboxListTile(
               title: Text('BoolPrefNotifier ${watch(booPrefProvider)}'),
               value: watch(booPrefProvider),
-              onChanged: (v) {
-                if (v != null) watch(booPrefProvider.notifier).update(v);
+              onChanged: (v) async {
+                if (v != null) await watch(booPrefProvider.notifier).update(v);
               },
             ),
             RadioListTile(
-              title: Text('Enum ${EnumValues.foo.toString()}'),
+              title: Text('${EnumValues.foo.toString()}'),
               value: EnumValues.foo,
               groupValue: watch(enumPrefProvider),
-              onChanged: (EnumValues? v) {
-                if (v != null) watch(enumPrefProvider.notifier).update(v);
+              onChanged: (EnumValues? v) async {
+                if (v != null) await watch(enumPrefProvider.notifier).update(v);
               },
             ),
             RadioListTile(
-              title: Text('Enum ${EnumValues.foo.toString()}'),
+              title: Text('${EnumValues.bar.toString()}'),
               value: EnumValues.bar,
               groupValue: watch(enumPrefProvider),
-              onChanged: (EnumValues? v) {
-                if (v != null) watch(enumPrefProvider.notifier).update(v);
+              onChanged: (EnumValues? v) async {
+                if (v != null) await watch(enumPrefProvider.notifier).update(v);
               },
             ),
           ]);
