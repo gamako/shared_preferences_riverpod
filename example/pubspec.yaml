@@ -1,4 +1,4 @@
-name: shared_preferences_flutter_riverpod_example
+name: shared_preferences_riverpod_example
 
 publish_to: 'none'
 
@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
   flutter_riverpod: ^0.14.0+3
 
-  shared_preferences_flutter_riverpod:
-    path: ../../shared_preferences_flutter_riverpod
+  shared_preferences_riverpod:
+    path: ../
 
   cupertino_icons: ^1.0.2
 

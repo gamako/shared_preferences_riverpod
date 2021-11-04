@@ -1,7 +1,7 @@
-name: shared_preferences_flutter_riverpod
-description: A new Flutter package project.
+name: shared_preferences_riverpod
+description: help to use shared_preferences with riverpod.
 version: 0.0.1
-homepage:
+homepage: https://github.com/gamako/shared_preferences_riverpod
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
