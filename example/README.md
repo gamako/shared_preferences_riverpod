@@ -1,4 +1,4 @@
-# shared_preferences_flutter_riverpod_sample
+# shared_preferences_riverpod_sample
 
 A new Flutter project.
 
