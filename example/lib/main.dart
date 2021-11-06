@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shared_preferences_flutter_riverpod/shared_preferences_riverpod.dart';
+import 'package:shared_preferences_riverpod/shared_preferences_riverpod.dart';
 
 late SharedPreferences prefs;
 
