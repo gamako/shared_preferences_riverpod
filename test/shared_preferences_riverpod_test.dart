@@ -19,13 +19,13 @@ class MyApp<T> extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return ProviderScope(child: Consumer(builder: (context, watch, _) {
-      final T value = watch(provider);
+    return ProviderScope(child: Consumer(builder: (context, ref, _) {
+      final T value = ref.watch(provider);
       return ProviderScope(
         child: MaterialApp(
           home: ElevatedButton(
             onPressed: () async {
-              await watch(provider.notifier).update(newValue);
+              await ref.read(provider.notifier).update(newValue);
             },
             child: Text('$value'),
           ),
@@ -54,13 +54,13 @@ class MyMapApp extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return ProviderScope(child: Consumer(builder: (context, watch, _) {
-      final value = watch(provider);
+    return ProviderScope(child: Consumer(builder: (context, ref, _) {
+      final value = ref.watch(provider);
       return ProviderScope(
         child: MaterialApp(
           home: ElevatedButton(
             onPressed: () async {
-              await watch(provider.notifier).update(EnumType.type2);
+              await ref.read(provider.notifier).update(EnumType.type2);
             },
             child: Text('$value'),
           ),

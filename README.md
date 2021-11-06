@@ -19,16 +19,16 @@ final booPrefProvider = createPrefProvider<bool>(
 );
 ```
 
-- Refer values with `watch(provider)`.
-- Update value with `await update(newValue);`.
+- Refer values with `ref.watch(provider)`.
+- Update value with `await ref.read(provider).update(newValue);`.
 
 ```dart
-Consumer(builder: (context, watch, _) {
+Consumer(builder: (context, ref, _) {
   return CheckboxListTile(
     title: Text('checkbox'),
-    value: watch(booPrefProvider),
+    value: ref.watch(booPrefProvider),
     onChanged: (v) async {
-        if (v != null) await watch(booPrefProvider.notifier).update(v);
+        if (v != null) await ref.read(booPrefProvider.notifier).update(v);
     },
   );
 }
@@ -53,17 +53,17 @@ final enumPrefProvider = createMapPrefProvider<EnumValues>(
 
 ```
 
-- Refer values with `watch(provider)`.
-- Update value with `await update(newValue);`.
+- Refer values with `ref.watch(provider)`.
+- Update value with `await ref.read(provider).update(newValue);`.
 
 ```dart
-Consumer(builder: (context, watch, _) {
+Consumer(builder: (context, ref, _) {
   return RadioListTile(
     title: Text('value1'),
     value: EnumValues.foo,
-    groupValue: watch(enumPrefProvider),
+    groupValue: ref.watch(enumPrefProvider),
     onChanged: (EnumValues? v) async {
-      if (v != null) await watch(enumPrefProvider.notifier).update(v);
+      if (v != null) await ref.read(enumPrefProvider.notifier).update(v);
     },
   );
 }
@@ -114,29 +114,32 @@ class MyApp extends StatelessWidget {
       title: 'Sample',
       home: Scaffold(
         appBar: AppBar(),
-        body: Consumer(builder: (context, watch, _) {
+        body: Consumer(builder: (context, ref, _) {
           return ListView(children: [
             CheckboxListTile(
-              title: Text('BoolPrefNotifier ${watch(booPrefProvider)}'),
-              value: watch(booPrefProvider),
+              title: Text('BoolPrefNotifier ${ref.watch(booPrefProvider)}'),
+              value: ref.watch(booPrefProvider),
               onChanged: (v) async {
-                if (v != null) await watch(booPrefProvider.notifier).update(v);
+                if (v != null)
+                  await ref.read(booPrefProvider.notifier).update(v);
               },
             ),
             RadioListTile(
               title: Text('${EnumValues.foo.toString()}'),
               value: EnumValues.foo,
-              groupValue: watch(enumPrefProvider),
+              groupValue: ref.watch(enumPrefProvider),
               onChanged: (EnumValues? v) async {
-                if (v != null) await watch(enumPrefProvider.notifier).update(v);
+                if (v != null)
+                  await ref.read(enumPrefProvider.notifier).update(v);
               },
             ),
             RadioListTile(
               title: Text('${EnumValues.bar.toString()}'),
               value: EnumValues.bar,
-              groupValue: watch(enumPrefProvider),
+              groupValue: ref.watch(enumPrefProvider),
               onChanged: (EnumValues? v) async {
-                if (v != null) await watch(enumPrefProvider.notifier).update(v);
+                if (v != null)
+                  await ref.read(enumPrefProvider.notifier).update(v);
               },
             ),
           ]);

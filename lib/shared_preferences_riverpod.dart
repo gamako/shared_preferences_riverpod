@@ -89,7 +89,7 @@ class PrefNotifier<T> extends StateNotifier<T> {
 /// ```
 ///
 StateNotifierProvider<PrefNotifier<T>, T> createPrefProvider<T>({
-  required SharedPreferences Function(ProviderReference) prefs,
+  required SharedPreferences Function(Ref) prefs,
   required String prefKey,
   required T defaultValue,
 }) {
@@ -183,7 +183,7 @@ class MapPrefNotifier<T> extends StateNotifier<T> {
 /// ```
 ///
 StateNotifierProvider<MapPrefNotifier<T>, T> createMapPrefProvider<T>({
-  required SharedPreferences Function(ProviderReference) prefs,
+  required SharedPreferences Function(Ref) prefs,
   required String prefKey,
   required T Function(String?) mapFrom,
   required String Function(T) mapTo,

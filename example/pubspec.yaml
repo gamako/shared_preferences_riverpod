@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_riverpod: ^0.14.0+3
+  flutter_riverpod: ^1.0.0
 
   shared_preferences_riverpod:
     path: ../
