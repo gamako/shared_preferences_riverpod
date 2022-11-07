@@ -1,5 +1,10 @@
 ios/
 android/
+linux/
+macos/
+test/
+web/
+windows/
 
 # Miscellaneous
 *.class
